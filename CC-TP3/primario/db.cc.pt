@@ -1,0 +1,44 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	cc.pt.	 g03pl07.cc.pt. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+; Name Server
+@		IN	NS	Servidor1
+@		IN	NS	Golfinho
+
+@		IN	MX	10	Servidor2
+@		IN	MX	20	Servidor3
+
+; Address
+
+ns		IN	A	10.2.2.1
+ns2 		IN	A	10.3.3.2
+
+; LAN2
+
+Servidor1	IN	A	10.2.2.1
+Servidor2	IN	A	10.2.2.2
+Servidor3	IN	A	10.2.2.3
+
+www		IN	CNAME	Servidor2
+mail		IN	CNAME	Servidor2
+pop		IN	CNAME	Servidor3
+imap		IN	CNAME	Servidor3
+
+g03		IN	CNAME	Portatil1
+
+; LAN1
+
+Portatil1	IN	A	10.1.1.1
+
+; LAN3
+
+Orca		IN	A	10.3.3.1
+Golfinho	IN	A	10.3.3.2
+Foca		IN	A	10.3.3.3
